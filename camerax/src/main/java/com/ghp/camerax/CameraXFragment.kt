@@ -1,31 +1,28 @@
-package com.ghp.jetpackdemo.ui.main
+package com.ghp.camerax
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.ghp.base.PageViewModel
-import com.ghp.jetpackdemo.databinding.FragmentMainBinding
+import com.ghp.camerax.databinding.FragmentCameraXBinding
 
 /**
- * A placeholder fragment containing a simple view.
+ * A simple [Fragment] subclass.
+ * Use the [CameraXFragment.newInstance] factory method to
+ * create an instance of this fragment.
  */
-class PlaceholderFragment : Fragment() {
-
-    private lateinit var pageViewModel: PageViewModel
-    private var _binding: FragmentMainBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+class CameraXFragment : Fragment() {
+    private lateinit var cameraXViewModel: CameraXViewModel
+    private var _binding: FragmentCameraXBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pageViewModel = ViewModelProvider(this).get(PageViewModel::class.java).apply {
+        cameraXViewModel = ViewModelProvider(this).get(CameraXViewModel::class.java).apply {
             setIndex(arguments?.getInt(ARG_SECTION_NUMBER) ?: 1)
         }
     }
@@ -34,36 +31,25 @@ class PlaceholderFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        _binding = FragmentMainBinding.inflate(inflater, container, false)
+        _binding = FragmentCameraXBinding.inflate(inflater, container, false)
         val view = binding.root
-
         val textView: TextView = binding.sectionLabel
-        pageViewModel.text.observe(viewLifecycleOwner, Observer {
+        cameraXViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return view
     }
 
     companion object {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
         private const val ARG_SECTION_NUMBER = "section_number"
 
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
         @JvmStatic
-        fun newInstance(sectionNumber: Int): PlaceholderFragment {
-            return PlaceholderFragment().apply {
+        fun newInstance(sectionNumber: Int) =
+            CameraXFragment().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_SECTION_NUMBER, sectionNumber)
                 }
             }
-        }
     }
 
     override fun onDestroyView() {

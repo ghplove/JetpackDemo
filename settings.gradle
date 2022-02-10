@@ -1,2 +1,5 @@
 rootProject.name = "JetpackDemo"
 include ':app'
+include ':camerax'
+include ':base'
+include ':av'
