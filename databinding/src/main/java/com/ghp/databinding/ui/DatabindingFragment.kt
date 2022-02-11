@@ -34,12 +34,14 @@ class DatabindingFragment : Fragment() {
         _binding = FragmentDatabindingBinding.inflate(inflater, container, false)
         val view = binding.root
 
+        binding.lifecycleOwner = this
+
         //绑定数据
         binding.viewmodel = dataBindingViewModel
 
-        dataBindingViewModel.isShowView.observe(viewLifecycleOwner, {
-            binding.imageview.isVisible = it
-        })
+//        dataBindingViewModel.isShowView.observe(viewLifecycleOwner, {
+//            binding.imageview.isVisible = it
+//        })
         return view
     }
 

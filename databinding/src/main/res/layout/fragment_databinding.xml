@@ -68,9 +68,9 @@
                 android:layout_height="200dp"
                 android:layout_marginTop="10dp"
                 android:scaleType="fitCenter"
-                android:visibility="@{viewmodel.showView ? View.VISIBLE : View.GONE}"
-                app:imageUrl="@{viewmodel.imageUrl}"
-                app:placeholder="@{viewmodel.imagePlaceholder}"
+                android:visibility="@{viewmodel.isShowImgView ? View.VISIBLE : View.GONE}"
+                app:imageUrl="@{viewmodel.bindingAdapterImageUrl}"
+                app:placeholder="@{viewmodel.bindingAdapterImagePlaceholder}"
                 android:onClick="@{viewmodel::imageClick}"/>
 
             <Button

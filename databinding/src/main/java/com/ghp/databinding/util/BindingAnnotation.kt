@@ -33,7 +33,7 @@ object BindingAnnotation {
     }
 
 //    //全局改变，慎用
-//    //android:visibility="@{viewmodel.bindingConversionTest}"
+//    //android:visibility="@{boolean}"
 //    @BindingConversion
 //    @JvmStatic fun booleanToVisibility(isNotVisible: Boolean): Int {
 //        return if (isNotVisible) View.GONE else View.VISIBLE
