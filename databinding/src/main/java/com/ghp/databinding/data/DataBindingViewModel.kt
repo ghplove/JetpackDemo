@@ -28,7 +28,9 @@ class DataBindingViewModel : ObservableViewModel() {
         Toast.makeText(view.context, "imageClick", Toast.LENGTH_SHORT).show()
     }
 
+    val bindingConversionTest = ObservableBoolean(true)
     fun onButtonClick(view: View){
+        bindingConversionTest.set(!bindingConversionTest.get())
         Toast.makeText(view.context, "onButtonClick", Toast.LENGTH_SHORT).show()
     }
 

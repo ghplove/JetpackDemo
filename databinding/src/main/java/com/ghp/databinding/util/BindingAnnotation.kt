@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
@@ -31,10 +32,18 @@ object BindingAnnotation {
             .into(view)
     }
 
+//    //全局改变，慎用
+//    //android:visibility="@{viewmodel.bindingConversionTest}"
+//    @BindingConversion
+//    @JvmStatic fun booleanToVisibility(isNotVisible: Boolean): Int {
+//        return if (isNotVisible) View.GONE else View.VISIBLE
+//    }
+
 }
 
 
 // 需添加'kotlin-kapt'
+//自定义属性绑定方法
 @BindingMethods(
     BindingMethod(type = TestEditText::class,
         attribute = "bindingMethodToast",
