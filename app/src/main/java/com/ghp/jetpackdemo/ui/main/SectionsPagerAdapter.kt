@@ -6,11 +6,13 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.ghp.av.AVFragment
 import com.ghp.camerax.CameraXFragment
+import com.ghp.databinding.ui.DatabindingFragment
 import com.ghp.jetpackdemo.R
 
 private val TAB_TITLES = arrayOf(
     R.string.tab_text_1,
-    R.string.tab_text_2
+    R.string.tab_text_2,
+    R.string.tab_text_3
 )
 
 /**
@@ -29,6 +31,9 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
             }
             1 -> {
                 AVFragment.newInstance(position + 1)
+            }
+            2 -> {
+                DatabindingFragment.newInstance(position + 1)
             }
             else -> {
                 PlaceholderFragment.newInstance(position + 1)

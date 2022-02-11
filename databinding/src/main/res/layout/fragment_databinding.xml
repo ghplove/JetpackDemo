@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="com.ghp.databinding.R"/>
+        <import type="android.view.View"/>
+        <variable
+            name="viewmodel"
+            type="com.ghp.databinding.data.DataBindingViewModel" />
+    </data>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.DatabindingFragment">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:divider="@color/black"
+            app:dividerPadding="1dp"
+            app:showDividers="middle|beginning|end">
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                android:text="@{viewmodel.dataBindingTest, default=my_default}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                android:text="@{viewmodel.bindableTestModel.firstName}" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/example_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/example_output"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@{exampleText.text}"/>
+            </LinearLayout>
+
+            <com.ghp.databinding.util.TestEditText
+                android:id="@+id/test_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:focusableInTouchMode="true"
+                android:text="@={viewmodel.editTextStr}"
+                app:bindingMethodToast="@{viewmodel.editTextStr}" />
+
+            <ImageView
+                android:id="@+id/imageview"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="fitCenter"
+                android:visibility="@{viewmodel.showView ? View.VISIBLE : View.GONE}"
+                app:imageUrl="@{viewmodel.imageUrl}"
+                app:placeholder="@{viewmodel.imagePlaceholder}"
+                android:onClick="@{viewmodel::imageClick}"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="button"
+                android:onClick="@{(bt) -> viewmodel.onButtonClick(bt)}" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:onCheckedChanged="@{(cb, isChecked) -> viewmodel.onCheckChanged(cb, isChecked)}"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+</layout>

@@ -6,6 +6,8 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import com.ghp.jetpackdemo.ui.main.SectionsPagerAdapter
 import com.ghp.jetpackdemo.databinding.ActivityMainBinding
 
