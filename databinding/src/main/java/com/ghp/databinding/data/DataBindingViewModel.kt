@@ -2,9 +2,11 @@ package com.ghp.databinding.data
 
 import android.view.View
 import android.widget.Toast
+import androidx.databinding.Observable
 import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
 import androidx.lifecycle.*
+import com.ghp.databinding.BR
 import com.ghp.databinding.R
 import com.ghp.databinding.util.BindableTestModel
 import com.ghp.databinding.util.ObservableViewModel
@@ -39,8 +41,15 @@ class DataBindingViewModel : ObservableViewModel() {
 
     //Bindable test
     fun imageClick(view: View) {
+        bindableTestModel.addOnPropertyChangedCallback(object :
+            Observable.OnPropertyChangedCallback(){
+            override fun onPropertyChanged(sender: Observable?, propertyId: Int) {
+                if(propertyId == BR.firstName){
+                    Toast.makeText(view.context, "imageClick ${(sender as BindableTestModel).firstName}", Toast.LENGTH_SHORT).show()
+                }
+            }
+        })
         bindableTestModel.firstName = "bindableTestModel"
-        Toast.makeText(view.context, "imageClick", Toast.LENGTH_SHORT).show()
     }
 
     //click test
