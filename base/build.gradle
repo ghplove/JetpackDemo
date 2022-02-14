@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion 32
-    buildToolsVersion "32.0.0"
+    compileSdkVersion build_versions.compile_sdk
+    buildToolsVersion build_versions.build_tools
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 32
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
         versionCode 1
         versionName "1.0"
 
@@ -33,11 +33,11 @@ android {
 
 dependencies {
 
-    api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    api "androidx.core:core-ktx:$core_ktx_version"
-    api "androidx.appcompat:appcompat:$appcompat_version"
-    api "com.google.android.material:material:$material_version"
-    api "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
-    api "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
-    api "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    api deps.kotlin.stdlib
+    api deps.core_ktx
+    api deps.material
+    api deps.appcompat
+    api deps.constraintlayout
+    api deps.lifecycle.livedata_ktx
+    api deps.lifecycle.viewmodel_ktx
 }

@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion 31
-    buildToolsVersion "32.0.0"
+    compileSdkVersion build_versions.compile_sdk
+    buildToolsVersion build_versions.build_tools
 
     defaultConfig {
         applicationId "com.ghp.jetpackdemo"
-        minSdkVersion 21
-        targetSdkVersion 31
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
         versionCode 1
         versionName "1.0"
     }
@@ -42,5 +42,6 @@ dependencies {
     implementation project(":camerax")
     implementation project(":av")
     implementation project(":databinding")
+    implementation project(":lifecycle")
 
 }

@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion 32
-    buildToolsVersion "32.0.0"
+    compileSdkVersion build_versions.compile_sdk
+    buildToolsVersion build_versions.build_tools
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 32
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
         versionCode 1
         versionName "1.0"
 
@@ -37,17 +37,17 @@ android {
 dependencies {
 
     implementation project(":base")
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation deps.legacy.support_v4
 
     // The following line is optional, as the core library is included indirectly by camera-camera2
-    implementation("androidx.camera:camera-core:${camerax_version}")
-    implementation("androidx.camera:camera-camera2:${camerax_version}")
+    implementation deps.camerax.core
+    implementation deps.camerax.camera2
     // If you want to additionally use the CameraX Lifecycle library
-    implementation("androidx.camera:camera-lifecycle:${camerax_version}")
+    implementation deps.camerax.lifecycle
     // If you want to additionally use the CameraX VideoCapture library
-    implementation("androidx.camera:camera-video:1.1.0-beta01")
+    implementation deps.camerax.video
     // If you want to additionally use the CameraX View class
-    implementation("androidx.camera:camera-view:1.1.0-beta01")
+    implementation deps.camerax.view
     // If you want to additionally use the CameraX Extensions library
-    implementation("androidx.camera:camera-extensions:1.1.0-beta01")
+    implementation deps.camerax.extensions
 }
