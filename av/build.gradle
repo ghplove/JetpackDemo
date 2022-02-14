@@ -37,6 +37,5 @@ android {
 dependencies {
 
     implementation project(":base")
-    implementation deps.legacy.support_v4
 
 }

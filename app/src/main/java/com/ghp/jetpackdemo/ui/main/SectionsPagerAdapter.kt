@@ -8,11 +8,13 @@ import com.ghp.av.AVFragment
 import com.ghp.camerax.CameraXFragment
 import com.ghp.databinding.ui.DatabindingFragment
 import com.ghp.jetpackdemo.R
+import com.ghp.lifecycle.ui.LifecycleFragment
 
 private val TAB_TITLES = arrayOf(
     R.string.tab_text_1,
     R.string.tab_text_2,
-    R.string.tab_text_3
+    R.string.tab_text_3,
+    R.string.tab_text_4
 )
 
 /**
@@ -34,6 +36,9 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
             }
             2 -> {
                 DatabindingFragment.newInstance(position + 1)
+            }
+            3 -> {
+                LifecycleFragment.newInstance(position + 1)
             }
             else -> {
                 PlaceholderFragment.newInstance(position + 1)

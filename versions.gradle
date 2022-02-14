@@ -7,7 +7,7 @@ versions.core_ktx = "1.3.1"
 versions.coroutines = "1.4.1"
 versions.material = "1.5.0"
 versions.appcompat = "1.4.1"
-versions.lifecycle = "2.2.0"
+versions.lifecycle = "2.4.0"
 versions.glide = "4.13.0"
 versions.constraintlayout = "2.0.1"
 versions.camerax = "1.0.2"
@@ -48,11 +48,31 @@ deps.appcompat = "androidx.appcompat:appcompat:$versions.appcompat"
 deps.constraintlayout = "androidx.constraintlayout:constraintlayout:$versions.constraintlayout"
 
 def lifecycle = [:]
-lifecycle.runtime = "androidx.lifecycle:lifecycle-runtime:$versions.lifecycle"
-lifecycle.java8 = "androidx.lifecycle:lifecycle-common-java8:$versions.lifecycle"
-lifecycle.compiler = "androidx.lifecycle:lifecycle-compiler:$versions.lifecycle"
+// ViewModel
 lifecycle.viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
+// ViewModel utilities for Compose
+lifecycle.compose = "androidx.lifecycle:lifecycle-viewmodel-compose:$versions.lifecycle"
+// LiveData
 lifecycle.livedata_ktx = "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle"
+// Lifecycles only (without ViewModel or LiveData)
+lifecycle.runtime = "androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifecycle"
+
+// Saved state module for ViewModel
+lifecycle.savedstate = "androidx.lifecycle:lifecycle-viewmodel-savedstate:$versions.lifecycle"
+
+// Annotation processor "kapt"
+lifecycle.compiler = "androidx.lifecycle:lifecycle-compiler:$versions.lifecycle"
+// alternately - if using Java8, use the following instead of lifecycle-compiler
+lifecycle.java8 = "androidx.lifecycle:lifecycle-common-java8:$versions.lifecycle"
+
+// optional - helpers for implementing LifecycleOwner in a Service
+lifecycle.service = "androidx.lifecycle:lifecycle-service:$versions.lifecycle"
+
+// optional - ProcessLifecycleOwner provides a lifecycle for the whole application process
+lifecycle.process = "androidx.lifecycle:lifecycle-process:$versions.lifecycle"
+
+// optional - ReactiveStreams support for LiveData
+lifecycle.reactivestreams = "androidx.lifecycle:lifecycle-reactivestreams-ktx:$versions.lifecycle"
 deps.lifecycle = lifecycle
 
 def glide = [:]

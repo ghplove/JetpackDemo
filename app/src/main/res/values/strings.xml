@@ -3,4 +3,5 @@
     <string name="tab_text_1">CameraX</string>
     <string name="tab_text_2">Audio &amp; Video</string>
     <string name="tab_text_3" tools:ignore="ExtraTranslation">DataBinding</string>
+    <string name="tab_text_4">lifecycle</string>
 </resources>

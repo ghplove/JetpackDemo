@@ -14,14 +14,14 @@ import com.ghp.databinding.databinding.FragmentDatabindingBinding
 
 class DatabindingFragment : Fragment() {
 
-//    private lateinit var dataBindingViewModel: DataBindingViewModel
+    private lateinit var dataBindingViewModel: DataBindingViewModel
 
-    private val dataBindingViewModel: DataBindingViewModel
-    by lazy {
-        ViewModelProvider(this, DataBindingViewModelFactory).get(DataBindingViewModel::class.java).apply {
-            setIndex(arguments?.getInt(ARG_SECTION_NUMBER) ?: 1)
-        }
-    }
+//    private val dataBindingViewModel: DataBindingViewModel
+//    by lazy {
+//        ViewModelProvider(this, DataBindingViewModelFactory)[DataBindingViewModel::class.java].apply {
+//            setIndex(arguments?.getInt(ARG_SECTION_NUMBER) ?: 1)
+//        }
+//    }
 
     //绑定类根据布局文件的名称，转换大小写+末尾添加 Binding 后缀
     private var _binding: FragmentDatabindingBinding? = null
@@ -29,9 +29,9 @@ class DatabindingFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        dataBindingViewModel = ViewModelProvider(this).get(DataBindingViewModel::class.java).apply {
-//            setIndex(arguments?.getInt(ARG_SECTION_NUMBER) ?: 1)
-//        }
+        dataBindingViewModel = ViewModelProvider(this)[DataBindingViewModel::class.java].apply {
+            setIndex(arguments?.getInt(ARG_SECTION_NUMBER) ?: 1)
+        }
     }
 
     override fun onCreateView(

@@ -37,7 +37,6 @@ android {
 dependencies {
 
     implementation project(":base")
-    implementation deps.legacy.support_v4
 
     // The following line is optional, as the core library is included indirectly by camera-camera2
     implementation deps.camerax.core
